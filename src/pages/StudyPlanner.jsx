@@ -58,7 +58,7 @@ export default function StudyPlanner() {
         </div>
 
         <div style={{ display: "flex", gap: "1rem" }}>
-          <div style={{ flex: 1 }} className="slide-in" style={{ animationDelay: "0.1s", opacity: 0 }}>
+          <div className="slide-in" style={{ flex: 1, animationDelay: "0.1s", opacity: 0 }}>
             <label style={{ color: "var(--text-secondary)", fontSize: "0.85rem", display: "block", marginBottom: "0.4rem" }}>
               Exam Date
             </label>
@@ -71,7 +71,7 @@ export default function StudyPlanner() {
             />
           </div>
 
-          <div style={{ flex: 1 }} className="slide-in" style={{ animationDelay: "0.15s", opacity: 0 }}>
+          <div className="slide-in" style={{ flex: 1, animationDelay: "0.15s", opacity: 0 }}>
             <label style={{ color: "var(--text-secondary)", fontSize: "0.85rem", display: "block", marginBottom: "0.4rem" }}>
               Daily Study Hours
             </label>
