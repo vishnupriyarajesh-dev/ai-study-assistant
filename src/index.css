@@ -123,3 +123,26 @@ h1, h2, h3 {
   border-color: var(--border-hover) !important;
   box-shadow: 0 0 0 3px rgba(226, 184, 75, 0.08);
 }
+@media (max-width: 768px) {
+  #mobile-bar {
+    display: flex !important;
+  }
+
+  #overlay {
+    display: block !important;
+  }
+
+  #sidebar {
+    transform: translateX(-100%);
+  }
+
+  #sidebar.open {
+    transform: translateX(0);
+  }
+}
+@media (max-width: 768px) {
+  main {
+    margin-left: 0 !important;
+    padding-top: 5rem !important;
+  }
+}
