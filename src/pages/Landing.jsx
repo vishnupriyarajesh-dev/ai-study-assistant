@@ -106,15 +106,15 @@ export default function Landing() {
         width: "100%",
       }}>
         {[
-          { icon: "🎓", label: "Chat Tutor" },
-          { icon: "🃏", label: "Flashcards" },
-          { icon: "📝", label: "Quiz Mode" },
-          { icon: "📄", label: "Summarizer" },
-          { icon: "📅", label: "Study Planner" },
-        ].map((f, i) => (
-          <div
-            key={i}
-            onClick={() => navigate("/chat")}
+  { icon: "🎓", label: "Chat Tutor", to: "/chat" },
+  { icon: "🃏", label: "Flashcards", to: "/flashcards" },
+  { icon: "📝", label: "Quiz Mode", to: "/quiz" },
+  { icon: "📄", label: "Summarizer", to: "/summarizer" },
+  { icon: "📅", label: "Study Planner", to: "/planner" },
+].map((f, i) => (
+  <div
+    key={i}
+    onClick={() => navigate(f.to)}
             style={{
               background: "var(--bg-secondary)",
               border: "1px solid var(--border)",
