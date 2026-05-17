@@ -2,7 +2,7 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 const links = [
-  { to: "/", label: "Chat Tutor", icon: "🎓" },
+  { to: "/chat", label: "Chat Tutor", icon: "🎓" },
   { to: "/flashcards", label: "Flashcards", icon: "🃏" },
   { to: "/quiz", label: "Quiz Mode", icon: "📝" },
   { to: "/summarizer", label: "Summarizer", icon: "📄" },

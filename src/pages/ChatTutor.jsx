@@ -42,7 +42,7 @@ export default function ChatTutor() {
     <div style={{ maxWidth: "800px", margin: "0 auto", display: "flex", flexDirection: "column", height: "90vh" }} className="fade-in">
 
       {/* Header */}
-      <div style={{ marginBottom: "1.5rem" }}>
+      <div style={{ marginBottom: "1.5rem", marginTop: "3rem" }}>
         <h2 style={{ fontSize: "2rem", color: "var(--accent)", marginBottom: "0.4rem" }}>Chat Tutor</h2>
         <p style={{ color: "var(--text-secondary)", fontSize: "0.95rem" }}>
           Ask anything — I'll explain it clearly, quiz you, or break it down step by step.
