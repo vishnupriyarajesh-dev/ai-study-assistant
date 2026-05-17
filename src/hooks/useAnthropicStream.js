@@ -11,7 +11,7 @@ async function callAI(messages, systemPrompt) {
       "Authorization": `Bearer ${API_KEY}`,
     },
     body: JSON.stringify({
-      model:"nvidia/nemotron-super-51b-v1:free",
+      model:"meta-llama/llama-3.3-70b-instruct:free",
       messages: [
         { role: "system", content: systemPrompt },
         ...messages,
