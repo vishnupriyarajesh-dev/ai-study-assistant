@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const API_KEY = import.meta.env.VITE_OPENROUTER_API_KEY;
+console.log("KEY:", import.meta.env.VITE_OPENROUTER_API_KEY);
 const API_URL = "https://openrouter.ai/api/v1/chat/completions";
 
 async function callAI(messages, systemPrompt) {
