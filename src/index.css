@@ -1,0 +1,125 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-primary: #0d1b2a;
+  --bg-secondary: #132236;
+  --bg-tertiary: #1a2e47;
+  --accent: #E2B84B;
+  --accent-hover: #f0cc6a;
+  --text-primary: #f0e9d6;
+  --text-secondary: #a89070;
+  --border: rgba(226, 184, 75, 0.2);
+  --border-hover: rgba(226, 184, 75, 0.45);
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Jost', sans-serif;
+  min-height: 100vh;
+}
+
+h1, h2, h3 {
+  font-family: 'Bodoni Moda', serif;
+}
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-16px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.slide-in {
+  animation: slideIn 0.3s ease forwards;
+}
+
+.thinking-dot {
+  animation: pulse 1.2s ease infinite;
+}
+
+/* Card flip */
+.card-scene {
+  perspective: 1000px;
+  width: 100%;
+  min-height: 220px;
+  cursor: pointer;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  min-height: 220px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  min-height: 220px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  text-align: center;
+  border: 1px solid var(--border-hover);
+}
+
+.card-front {
+  background: var(--bg-secondary);
+}
+
+.card-back {
+  background: var(--accent);
+  transform: rotateY(180deg);
+}
+
+/* Button hover */
+.btn-gold {
+  transition: all 0.2s ease;
+}
+.btn-gold:hover:not(:disabled) {
+  background: var(--accent-hover) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 20px rgba(226, 184, 75, 0.25);
+}
+
+/* Sidebar link hover */
+.nav-link:hover {
+  color: var(--accent) !important;
+  background: rgba(226,184,75,0.07) !important;
+}
+
+/* Message bubble animation */
+.msg-bubble {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+/* Input focus glow */
+.input-glow:focus {
+  border-color: var(--border-hover) !important;
+  box-shadow: 0 0 0 3px rgba(226, 184, 75, 0.08);
+}
