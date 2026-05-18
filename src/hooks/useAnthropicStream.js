@@ -7,25 +7,29 @@ console.log("KEY:", API_KEY);
 
 async function callAI(messages, systemPrompt) {
   const res = await fetch(API_URL, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${API_KEY}`,
-    },
-    body: JSON.stringify({
-      model: "google/gemma-4-31b-it:free",
-      messages: [
-        { role: "system", content: systemPrompt },
-        ...messages,
-      ],
-    }),
-  });
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    Authorization: `Bearer ${API_KEY}`,
+  },
+  body: JSON.stringify({
+    model: "meta-llama/llama-3.1-8b-instruct:free",
+    messages: [
+      { role: "system", content: systemPrompt },
+      ...messages,
+    ],
+  }),
+});
 
-  const data = await res.json();
+const data = await res.json();
 
-  console.log("FULL RESPONSE:", data);
+console.log("FULL RESPONSE:", data);
 
-  return data;
+if (!res.ok) {
+  throw new Error(data.error?.message || "API Error");
+}
+
+return data;
 }
 
 export function useAnthropicStream() {
