@@ -11,7 +11,7 @@ async function callAI(messages, systemPrompt) {
       "Authorization": `Bearer ${API_KEY}`,
     },
     body: JSON.stringify({
-      model: "nousresearch/hermes-3-llama-3.1-405b:free",
+      model: "google/gemma-4-31b-it:free",
       messages: [
         { role: "system", content: systemPrompt },
         ...messages,
