@@ -1,14 +1,16 @@
 import { useState } from "react";
 
-console.log("KEY:", import.meta.env.VITE_OPENROUTER_API_KEY);
 const API_URL = "https://openrouter.ai/api/v1/chat/completions";
+const API_KEY = import.meta.env.VITE_OPENROUTER_API_KEY;
+
+console.log("KEY:", API_KEY);
 
 async function callAI(messages, systemPrompt) {
   const res = await fetch(API_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `Bearer ${API_KEY}`,
+      Authorization: `Bearer ${API_KEY}`,
     },
     body: JSON.stringify({
       model: "google/gemma-4-31b-it:free",
@@ -18,7 +20,12 @@ async function callAI(messages, systemPrompt) {
       ],
     }),
   });
-  return res.json();
+
+  const data = await res.json();
+
+  console.log("FULL RESPONSE:", data);
+
+  return data;
 }
 
 export function useAnthropicStream() {
@@ -33,11 +40,16 @@ export function useAnthropicStream() {
 
     try {
       const data = await callAI(messages, systemPrompt);
-      console.log("API response:", data);
+
       const text = data.choices?.[0]?.message?.content;
-      if (text) setResponse(text);
-      else setError("No response received.");
+
+      if (text) {
+        setResponse(text);
+      } else {
+        setError("No response received.");
+      }
     } catch (err) {
+      console.error(err);
       setError("Something went wrong.");
     } finally {
       setIsLoading(false);
