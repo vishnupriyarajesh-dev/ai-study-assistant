@@ -13,7 +13,7 @@ async function callAI(messages, systemPrompt) {
     Authorization: `Bearer ${API_KEY}`,
   },
   body: JSON.stringify({
-    model: "meta-llama/llama-3.1-8b-instruct:free",
+    mmodel: "openai/gpt-4o-mini",
     messages: [
       { role: "system", content: systemPrompt },
       ...messages,
